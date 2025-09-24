@@ -11,3 +11,9 @@ print()
 
 for n in sorted(names, key=convert_strip):
     print(n, end=' ')
+
+
+for n in sorted(names, key=lambda s : s.strip().lower()):
+    print(n, end=' ')
+
+
