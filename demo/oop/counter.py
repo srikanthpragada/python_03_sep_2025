@@ -7,7 +7,8 @@ class Counter:
     def inc(self, step = 1):
         self.value += step
 
-    def getvalue(self):
+    @property
+    def countervalue(self):
         return self.value
 
 
@@ -15,7 +16,7 @@ c1 = Counter()  # create an object
 c1.inc(5)
 c1.inc()
 
-print(c1.getvalue())
+print(c1.countervalue)
 
 c2 = Counter(100)
-print(c2.getvalue())
+print(c2.countervalue)
