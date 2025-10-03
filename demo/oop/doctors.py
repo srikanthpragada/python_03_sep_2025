@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-
 class Doctor(ABC):
     def __init__(self, name, dept):
         self.name = name

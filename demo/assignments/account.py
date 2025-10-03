@@ -12,6 +12,9 @@ class SavingsAccount:
     def __init__(self, acno, customer, balance):
         self.acno = acno
         self.customer = customer
+        if balance < SavingsAccount.minbal:
+            raise ValueError("Invalid Balance!")
+
         self.balance = balance
 
     def deposit(self, amount):
@@ -21,15 +24,15 @@ class SavingsAccount:
         if self.balance - SavingsAccount.minbal >= amount:
             self.balance -= amount
         else:
-            print('Sorry! Insufficient Balance!')
+           raise ValueError('Insufficient Balance')
 
     def getbalance(self):
         return self.balance
 
 
-a1 = SavingsAccount(1, "Martin", 10000)
+a1 = SavingsAccount(1, "Martin", 1000)
 a1.deposit(5000)
 print(a1.getbalance())
 SavingsAccount.setminbal(2000)
-a1.withdraw(12000)
+a1.withdraw(15000)
 print(a1.getbalance())
