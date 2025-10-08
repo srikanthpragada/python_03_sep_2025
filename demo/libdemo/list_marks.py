@@ -7,7 +7,10 @@ for line in f.readlines():
         continue  # Ignore line and go top
 
     name = parts[0]
-    marks = list(map(int, parts[1:]))
+    # Remove parts that are not numbers
+    numbers = filter(str.isdigit, parts[1:])
+    # Convert all parts to int
+    marks = list(map(int, numbers))
     total = sum(marks)
     print(f"{name:20}  {total:3} {total//len(marks):2}")
 
