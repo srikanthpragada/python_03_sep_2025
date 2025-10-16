@@ -1,0 +1,21 @@
+# List employees from EMPLOYEES table of hr.db
+
+import sqlite3
+import dbutil
+con = None
+try:
+    con = sqlite3.connect(dbutil.DBNAME)
+    cur = con.cursor()
+    cur.execute("select * from employees order by salary desc")  # SQL Command
+
+    for id, name, job, salary in cur.fetchall():
+        print(f"{id:2} {name:20} {job:10} {salary:10}")
+
+    cur.close()
+except Exception as ex:
+    print('Error :', ex)
+finally:
+    if(con):
+        con.close()
+
+
