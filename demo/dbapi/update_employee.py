@@ -7,6 +7,7 @@ id = int(input("Enter id :"))
 salary = int(input("Enter new salary :"))
 
 try:
+
     cur.execute("update employees set salary = ? where id = ?",
                 (salary, id))
     if cur.rowcount == 1:
